@@ -1,33 +1,7 @@
 {
-    "builds": [
+    "rewrites": [
         {
-            "src": "package.json",
-            "use": "@vercel/node"
+            "source": "/(.*)"
         }
-    ],
-    "routes": [
-        {
-            "src": "/api/(.*)",
-            "dest": "/api/$1"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/"
-        }
-    ],
-    "version": 2,
-    "functions": {
-        "api": {
-            "memory": 1024
-        }
-    },
-    "build": {
-        "env": {
-            "NEXT_PUBLIC_API_URL": "@api-url"
-        },
-        "includeFiles": [
-            "prisma/**/*.prisma"
-        ],
-        "command": "npm run build"
-    }
+    ]
 }
